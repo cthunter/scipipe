@@ -91,15 +91,14 @@ SciPipe looks like:
 package main
 
 import (
-    // Import SciPipe into the main namespace (generally frowned upon but could
-    // be argued to be reasonable for short-lived workflow scripts like this)
-    . "github.com/scipipe/scipipe"
+    // Import the SciPipe package, aliased to 'sp'
+    sp "github.com/scipipe/scipipe"
 )
 
 func main() {
     // Init workflow with a name, and max concurrent tasks so we don't overbook
     // our CPU
-    wf := NewWorkflow("hello_world", 4)
+    wf := sp.NewWorkflow("hello_world", 4)
 
     // Initialize processes and set output file paths
     hello := wf.NewProc("hello", "echo 'Hello ' > {o:out}")
